@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>angular指令demo</title>
+		<script src="js/angular.min.js"></script>
+		<!--
+        	ng-app - 该指令启动一个AngularJS应用。 
+	 		ng-init - 该指令初始化应用程序数据。 
+	 		ng-model - 此指令定义的模型，该模型是变量在AngularJS使用。 
+	 		ng-repeat - 该指令将重复集合中的每个项目的HTML元素。
+        -->
+	</head>
+	<body ng-app ng-init="persons=[{name:'张三',age:'21'},
+								   {name:'李四',age:'22'},
+								   {name:'赵五',age:'23'}]">
+		name  <input type="text" ng-model="name"  /><br />
+		hello  {{name}}	<br />					   
+		<div ng-repeat="person in persons">
+			{{'name : '+person.name +', age : '+person.age}}
+		</div>
+	</body>
+</html>
+
+
+<!--下面是官网案例
+<html>
+<title>AngularJS Directives</title>
+<script src="js/angular.min.js"></script>
+<body>
+<h1>Sample Application</h1>
+<div ng-app="" ng-init="countries=[{locale:'en-US',name:'United States'},
+                                    {locale:'en-GB',name:'United Kingdom'},
+                                    {locale:'en-FR',name:'France'}]">
+   <p>Enter your Name: <input type="text" ng-model="name"></p>
+   <p>Hello <span ng-bind="name"></span>!</p>
+   <p>List of Countries with locale:</p>
+   <ol>
+      <li ng-repeat="country in countries">
+         {{ 'Country: ' + country.name + ', Locale: ' + country.locale }}
+      </li>
+   </ol>
+</div>
+
+</body>
+</html>-->

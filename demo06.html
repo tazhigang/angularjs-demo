@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>angular中Service  Demo</title>
+		<script src="js/angular.min.js"></script>
+		<script>
+			var app = angular.module("myApp",[]);
+//			app.controller("customerController",function($scope,$location){
+//				$scope.myUrl = $location.absUrl();
+//			})
+			app.controller("httpController",function($scope,$http){
+				$http.get("demo01.html").then(function (response) {
+			        $scope.myWelcome = response.data;
+			    });
+			})
+		</script>
+	</head>
+	<body>
+		<!--<div ng-app="myApp" ng-controller="customerController">
+			{{myUrl}}
+		</div>-->
+		<div ng-app="myApp" ng-controller="httpController">
+			{{myWelcome}}
+		</div>
+	</body>
+	
+</html>
