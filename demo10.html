@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>angular中Select Demo02</title>
+		<script src="js/angular.min.js"></script>
+		<script>
+			angular.module("myApp",[]).controller("selectController",function($scope){
+				$scope.persons = {
+					person1 : {name : "zhangsan", age : "23", like : "baseball"},         
+				  	person2 : {name : "lisi", age : "22", like : "basketball"},         
+				  	person3 : {name : "zhangsan", age : "23", like : "soccerball"}    
+				}
+			})
+			
+		</script>
+	</head>
+	<body>
+		<div ng-app="myApp" ng-controller="selectController">
+			<select ng-model="selectedPerson" ng-options="x for (x, y) in persons">
+			</select>
+			<br />
+			name ：{{selectedPerson.name}}
+			<br />
+			age ：{{selectedPerson.age}}
+			<br />
+			like : {{selectedPerson.like}}
+		</div>
+	</body>
+	
+</html>
+
