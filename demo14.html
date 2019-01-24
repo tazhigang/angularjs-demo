@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>angular事件二:隐藏Html元素  Demo</title>
+		<script src="js/angular.min.js"></script>
+		<script>
+			angular.module("myApp",[]).controller("hideController",function($scope){
+				$scope.student = {
+					firstName:"James",
+					lastName: "Gobling",
+					fullName:function(){
+						var studentObj; 
+						studentObj = $scope.student;
+						return studentObj.firstName + "  " + studentObj.lastName;
+					}
+				}
+				$scope.status = false;
+				$scope.trigger=function(){
+					$scope.status = !$scope.status;
+				}
+			})
+		</script>
+	</head>
+	<body ng-app="myApp" ng-controller="hideController">
+		<button ng-click="trigger()">隐藏/显示</button>
+		<div ng-hide="status">
+			Enter first name:<input type="text" ng-model="student.firstName"><br>
+			<br>
+			Enter last name: <input type="text" ng-model="student.lastName"><br>
+			<br>
+			Name in Upper Case: {{student.fullName() | uppercase}}<br>
+		</div>
+	</body>
+</html>
+

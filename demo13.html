@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>angular事件一:点击事件  Demo</title>
+		<script src="js/angular.min.js"></script>
+		<script>
+			/*angular.module("myApp",[]).controller("tableController",function($scope,$http){
+				$http.get("data/demo12.json").then(function(response){
+					$scope.records = response.data.records;
+				},function(response){
+					$scope.records = "数据获取失败......";
+				})
+			})*/
+		</script>
+	</head>
+	<body>
+		<div ng-app ng-init="count = 0">
+			<button ng-click="count = count + 1">点我加1</button><br />
+			<button ng-click="count = count - 1">点我减1</button><br />
+			{{count}}
+		</div>
+	</body>
+</html>
+

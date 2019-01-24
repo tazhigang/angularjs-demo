@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>angular表单Js  Demo</title>
+		<script src="js/angular.min.js"></script>
+		<script>
+			angular.module("myApp",[]).controller("formController",function($scope){
+				$scope.master = {firstName:"James",lastName:"Gobling"};
+				$scope.reset = function(){
+					$scope.user = angular.copy($scope.master)
+				}
+				$scope.reset()
+			})
+		</script>
+	</head>
+	<body>
+		<div ng-app="myApp" ng-controller="formController">
+			firstName : <input type="text" ng-model="user.firstName" />
+			<br/>
+			lastName : <input type="text" ng-model="user.lastName" />
+			<br/>
+			<input type="button" ng-click="reset()" value="reset" />
+			<br/>
+			user : {{user}}
+			<br/>
+			master : {{master}}
+		</div>
+	</body>
+</html>
+

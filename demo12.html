@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>angular中Table Demo</title>
+		<link rel="stylesheet" href="css/demo12.css" />
+		<script src="js/angular.min.js"></script>
+		<script>
+			angular.module("myApp",[]).controller("tableController",function($scope,$http){
+				$http.get("data/demo12.json").then(function(response){
+					$scope.records = response.data.records;
+				},function(response){
+					$scope.records = "数据获取失败......";
+				})
+			})
+			
+		</script>
+	</head>
+	<body>
+		<div>
+			<table  ng-app="myApp" ng-controller="tableController">
+				<thead>
+					<th>序号</th>
+					<th>Name</th>
+					<th>City</th>
+					<th>Country</th>
+				</thead>
+				<tr ng-repeat="record in records | orderBy : 'Country'">
+					<td>{{ $index + 1 }}</td>
+					<td>{{record.Name}}</td>
+					<td>{{record.City}}</td>
+					<td>{{record.Country}}</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+	
+</html>
+
